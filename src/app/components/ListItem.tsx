@@ -2,6 +2,7 @@ import React from "react";
 import { ListItem, IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { EditableListItemText } from "./UpdateTask";
+import { DeleteTask } from "./DeleteTask";
 
 export const TodoList = ({ todos, handleUpdateTodo, handleDeleteTodo}) => {
     return (
@@ -13,9 +14,7 @@ export const TodoList = ({ todos, handleUpdateTodo, handleDeleteTodo}) => {
             onSave={(newText) => handleUpdateTodo(todo.id, newText)}
             onCancel={() => {}}
           />
-          <IconButton onClick={() => handleDeleteTodo(todo.id)}>
-            <DeleteIcon />
-          </IconButton>
+        <DeleteTask handleDeleteTodo={() => handleDeleteTodo(todo.id)} todoId={todo.id}/>
         </ListItem>
       ))}
       </>
